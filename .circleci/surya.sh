@@ -75,10 +75,9 @@ function cloneTC() {
     | wget --output-document=Neutron.tar.zst -qi -
     tar -xvf Neutron.tar.zst -C Neutron/
     
+    export KERNEL_CLANG="clang"
     export KERNEL_CLANG_PATH="${KERNEL_DIR}/Neutron"
     export PATH="$KERNEL_CLANG_PATH/bin:$PATH"
-    export CLANG_TRIPLE=aarch64-linux-gnu-
-    export CROSS_COMPILE=aarch64-linux-gnu-
     
     elif [ $COMPILER = "trb" ];
     then
@@ -407,7 +406,9 @@ START=$(date +"%s")
 	   then
 	       make -kj$(nproc --all) O=out \
 	       ARCH=arm64 \
-	       CC=clang \
+	       CC=$KERNEL_CLANG \
+	       CROSS_COMPILE=aarch64-linux-gnu- \
+	       CLANG_TRIPLE=aarch64-linux-gnu- \
 	       LD=${LINKER} \
 	       #LLVM=1 \
 	       #LLVM_IAS=1 \
