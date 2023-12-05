@@ -85,4 +85,4 @@ config KP_VERBOSE_DEBUG
 	  Say Y here if you are testing Kprofiles or trying to
 	  debug and indentify problems.
 
-endif # if KPROFILES
+endif
