@@ -66,16 +66,17 @@ function cloneTC() {
 	PATH="${KERNEL_DIR}/clang/bin:$PATH"
 
     elif [ $COMPILER = "neutron" ];
-    then    
-    mkdir -p Neutron/
+    then
+    mkdir Neutron
     curl -s https://api.github.com/repos/Neutron-Toolchains/clang-build-catalogue/releases/latest \
     | grep "browser_download_url.*tar.zst" \
     | cut -d : -f 2,3 \
     | tr -d \" \
-    | wget --output-document=Neutron.tar.zst -qi -    
-    tar -xf Neutron.tar.zst -C Neutron/ || exit 1    
+    | wget --output-document=Neutron.tar.zst -qi -
+    tar -xvf Neutron.tar.zst -C Neutron/
     
-    export PATH="${KERNEL_DIR}/Neutron/bin:$PATH"
+    export KERNEL_CLANG_PATH="${KERNEL_DIR}/Neutron"
+    export PATH="$KERNEL_CLANG_PATH/bin:$PATH"
     export CLANG_TRIPLE=aarch64-linux-gnu-
     export CROSS_COMPILE=aarch64-linux-gnu-
     
