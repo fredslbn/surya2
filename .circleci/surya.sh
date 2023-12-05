@@ -67,15 +67,15 @@ function cloneTC() {
 
     elif [ $COMPILER = "neutron" ];
     then    
-    mkdir -p neutron/
+    mkdir -p Neutron/
     curl -s https://api.github.com/repos/Neutron-Toolchains/clang-build-catalogue/releases/latest \
     | grep "browser_download_url.*tar.zst" \
     | cut -d : -f 2,3 \
     | tr -d \" \
     | wget --output-document=Neutron.tar.zst -qi -    
-    tar -xf Neutron.tar.zst -C neutron/ || exit 1    
+    tar -xf Neutron.tar.zst -C Neutron/ || exit 1    
     
-    export PATH="${KERNEL_DIR}/neutron/bin:$PATH"
+    export PATH="${KERNEL_DIR}/Neutron/bin:$PATH"
     export CLANG_TRIPLE=aarch64-linux-gnu-
     export CROSS_COMPILE=aarch64-linux-gnu-
     
@@ -302,10 +302,10 @@ function exports() {
            then
                export KBUILD_COMPILER_STRING=$(${KERNEL_DIR}/cosmic-clang/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')       
         
-        elif [ -d ${KERNEL_DIR}/neutron ];
+        elif [ -d ${KERNEL_DIR}/Neutron ];
            then
-               export KBUILD_COMPILER_STRING=$(${KERNEL_DIR}/neutron/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
-               export LD_LIBRARY_PATH="${KERNEL_DIR}/neutron/lib:$LD_LIBRARY_PATH"
+               export KBUILD_COMPILER_STRING=$(${KERNEL_DIR}/Neutron/bin/clang --version | head -n 1 | sed -e 's/  */ /g' -e 's/[[:space:]]*$//' -e 's/^.*clang/clang/')
+               export LD_LIBRARY_PATH="${KERNEL_DIR}/Neutron/lib:$LD_LIBRARY_PATH"
 
         elif [ -d ${KERNEL_DIR}/aosp-clang ];
             then
@@ -402,7 +402,7 @@ START=$(date +"%s")
 	       #OBJSIZE=llvm-size \
 	       V=$VERBOSE 2>&1 | tee error.log
 	       
-	elif [ -d ${KERNEL_DIR}/neutron ];
+	elif [ -d ${KERNEL_DIR}/Neutron ];
 	   then
 	       make -kj$(nproc --all) O=out \
 	       ARCH=arm64 \
