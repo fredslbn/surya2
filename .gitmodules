@@ -2,10 +2,6 @@
 	path = drivers/misc/kprofiles
 	url = https://github.com/dakkshesh07/Kprofiles.git
 	branch = main
-[submodule "KernelSU"]
-	path = KernelSU
-	url = https://github.com/tiann/KernelSU.git
-	branch = main
 [submodule "drivers/misc/Kprofiles"]
 	path = drivers/misc/Kprofiles
 	url = https://github.com/dakkshesh07/Kprofiles.git
