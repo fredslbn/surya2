@@ -469,13 +469,13 @@ function zipping() {
 	# Zipping and Push Kernel
 	cd AnyKernel3 || exit 1
 	
-	    zip -r9 UPDATE-AnyKernel2.zip * -x README.md LICENSE UPDATE-AnyKernel2.zip zipsigner.jar
-	    cp UPDATE-AnyKernel2.zip package.zip 
-	    curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
-	    java -jar zipsigner-3.0.jar UPDATE-AnyKernel2.zip $ZIPNAME	    
+	   # zip -r9 UPDATE-AnyKernel2.zip * -x README.md LICENSE UPDATE-AnyKernel2.zip zipsigner.jar
+	   # cp UPDATE-AnyKernel2.zip package.zip 
+	   # curl -sLo zipsigner-3.0.jar https://github.com/Magisk-Modules-Repo/zipsigner/raw/master/bin/zipsigner-3.0-dexed.jar
+	   # java -jar zipsigner-3.0.jar UPDATE-AnyKernel2.zip $ZIPNAME	    
 	    
-        #zip -r9 ${ZIPNAME} *
-        #MD5CHECK=$(md5sum "$ZIPNAME" | cut -d' ' -f1)
+        zip -r9 ${ZIPNAME} *
+        MD5CHECK=$(md5sum "$ZIPNAME" | cut -d' ' -f1)
         echo "Zip: $ZIPNAME"
         #curl -T $ZIPNAME temp.sh; echo
         #curl -T $ZIPNAME https://oshi.at; echo
