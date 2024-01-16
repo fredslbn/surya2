@@ -6,6 +6,7 @@ jobs:
    steps:
       - run:
           command: |
+            pacman -Sy --needed --noconfirm archlinux-keyring
             pacman -Syu --needed --noconfirm wget xmlto git zip
             git clone --depth=1 https://github.com/fredslbn/surya2.git -b main builder_kernel
             cd builder_kernel
