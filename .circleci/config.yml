@@ -7,7 +7,7 @@ jobs:
       - run:
           command: |
             pacman -Sy --needed --noconfirm archlinux-keyring
-            pacman -Syu --needed --noconfirm wget xmlto git zip
+            pacman -Syu --needed --noconfirm wget xmlto base-devel inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz git python zip fortune-mod
             git clone --depth=1 https://github.com/fredslbn/surya2.git -b main builder_kernel
             cd builder_kernel
             bash .circleci/surya.sh
