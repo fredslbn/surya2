@@ -8,9 +8,6 @@
 # Specify Kernel Directory
 KERNEL_DIR="$(pwd)"
 
-pacman -Sy --needed --noconfirm archlinux-keyring
-pacman -Syyu --needed --noconfirm wget xmlto base-devel inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz git python zip fortune-mod
-
 git submodule update --init --recursive --remote
 
 ##----------------------------------------------------------##
