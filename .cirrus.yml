@@ -6,6 +6,10 @@ task:
       image: panchajanya1999/archlinux:latest
       cpu: 8
       memory: 32G
+      
+  setup_script:
+    - pacman -Sy --needed --noconfirm archlinux-keyring
+    - pacman -Syyu --needed --noconfirm wget xmlto base-devel inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz git python zip fortune-mod
 
   Build_script:
       - bash neutron.sh
