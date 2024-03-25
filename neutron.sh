@@ -59,7 +59,7 @@ function cloneTC() {
     if [ $COMPILER = "neutron" ];
     then
     mkdir Neutron
-    curl -s https://api.github.com/repos/Neutron-Toolchains/clang-build-catalogue/releases/latest \
+    curl -s https://api.github.com/repos/Neutron-Toolchains/clang-build-catalogue/releases/135899675/assets \
     | grep "browser_download_url.*tar.zst" \
     | cut -d : -f 2,3 \
     | tr -d \" \
