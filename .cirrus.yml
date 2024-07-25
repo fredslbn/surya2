@@ -12,7 +12,6 @@ task:
     - pacman -Syyu --needed --noconfirm wget xmlto base-devel inetutils bc cpio python-sphinx python-sphinx_rtd_theme graphviz git python zip fortune-mod
     - cd KernelSU
     - git submodule update --init --recursive --remote
-    - git checkout v0.9.5
     - git rev-list --count HEAD
     - cd ..
 
