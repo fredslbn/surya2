@@ -2451,7 +2451,7 @@ proc_map_files_readdir(struct file *file, struct dir_context *ctx)
 					sizeof(info.name), "%lx-%lx",
 					vma->vm_start, vma->vm_end);
 					
-			+#ifdef CONFIG_KSU_SUSFS_SUS_MAPS
+			#ifdef CONFIG_KSU_SUSFS_SUS_MAPS
 			susfs_ret = susfs_sus_map_files_instantiate(vma);
 			info.susfs_action = susfs_ret;
 			#endif
